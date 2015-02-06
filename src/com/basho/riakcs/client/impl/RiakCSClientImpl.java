@@ -388,7 +388,7 @@ public class RiakCSClientImpl
 			CommunicationLayer comLayer= getCommunicationLayer();
 			
 			URL url= comLayer.generateCSUrl(bucketName, objectKey, EMPTY_STRING_MAP);
-			HttpURLConnection conn= comLayer.makeCall(CommunicationLayer.HttpMethod.GET, url, null, EMPTY_STRING_MAP);
+			HttpURLConnection conn= comLayer.makeCall(CommunicationLayer.HttpMethod.GET, url);
 	
 			object= extractMetaInfoForObject(objectKey, conn);
 	
@@ -426,7 +426,7 @@ public class RiakCSClientImpl
 			CommunicationLayer comLayer= getCommunicationLayer();
 			
 			URL url= comLayer.generateCSUrl(bucketName, objectKey, EMPTY_STRING_MAP);
-			HttpURLConnection conn= comLayer.makeCall(CommunicationLayer.HttpMethod.HEAD, url, null, EMPTY_STRING_MAP);
+			HttpURLConnection conn= comLayer.makeCall(CommunicationLayer.HttpMethod.HEAD, url);
 	
 			object= extractMetaInfoForObject(objectKey, conn);
 		
@@ -753,7 +753,7 @@ public class RiakCSClientImpl
 			CommunicationLayer comLayer= getCommunicationLayer();
 	
 			URL url= comLayer.generateCSUrl(path.toString());
-			HttpURLConnection connection= comLayer.makeCall(CommunicationLayer.HttpMethod.GET, url, null, EMPTY_STRING_MAP);
+			HttpURLConnection connection= comLayer.makeCall(CommunicationLayer.HttpMethod.GET, url);
 	
 			InputStreamReader inputStreamReader= new InputStreamReader(connection.getInputStream(), "UTF-8");
 			result= new JSONObject(new JSONTokener(inputStreamReader));
@@ -792,7 +792,7 @@ public class RiakCSClientImpl
 			CommunicationLayer comLayer= getCommunicationLayer();
 	
 			URL url= comLayer.generateCSUrl(path.toString());
-			HttpURLConnection connection= comLayer.makeCall(CommunicationLayer.HttpMethod.GET, url, null, EMPTY_STRING_MAP);
+			HttpURLConnection connection= comLayer.makeCall(CommunicationLayer.HttpMethod.GET, url);
 	
 			InputStreamReader inputStreamReader= new InputStreamReader(connection.getInputStream(), "UTF-8");
 			result= new JSONObject(new JSONTokener(inputStreamReader));
